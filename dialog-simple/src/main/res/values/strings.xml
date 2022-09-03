@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="toosimple_loading_text" tools:ignore="TypographyEllipsis">加载中...</string>
+
+    <string name="toosimple_actionsheet_cancel">取消</string>
+
+    <string name="toosimple_picker_cancel">取消</string>
+    <string name="toosimple_picker_confirm">确定</string>
+
+    <string name="toosimple_input_confirm">确定</string>
+</resources>

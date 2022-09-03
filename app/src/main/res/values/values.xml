@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="prompt_theme">请选择主题</string>
+
+    <string-array name="items">
+        <item>zero</item>
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+        <item>four</item>
+    </string-array>
+
+    <string-array name="themes">
+        <item>TooSimple</item>
+        <item>Default</item>
+        <item>Material</item>
+    </string-array>
+
+    <string-array name="titles">
+        <item>none</item>
+        <item>short</item>
+        <item>long</item>
+    </string-array>
+
+    <string-array name="contents">
+        <item>none</item>
+        <item>message</item>
+        <item>long message</item>
+        <item>list</item>
+        <item>single choice</item>
+        <item>multiple choice</item>
+        <item>custom</item>
+    </string-array>
+
+    <string-array name="buttons">
+        <item>none</item>
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+    </string-array>
+</resources>

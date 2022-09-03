@@ -1,0 +1,9 @@
+
+apply from: "$buildGradlePath/build-library-demo.gradle"
+
+
+dependencies {
+    implementation project(":dialog-alert")
+    implementation project(":dialog-custom")
+    implementation project(":dialog-simple")
+}

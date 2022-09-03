@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentPanel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="-18dp"
+        android:background="@drawable/toosimple_alert_icon_background"
+        android:scaleType="center"
+        tools:background="#FF0000"
+        tools:layout_height="80dp"
+        tools:layout_width="80dp" />
+
+    <LinearLayout
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/toosimple_alert_background"
+        android:elevation="-1px"
+        android:orientation="vertical">
+
+        <!-- top -->
+        <LinearLayout
+            android:id="@+id/topPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/title_template"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="?attr/dialogPreferredPadding"
+                android:paddingTop="@dimen/abc_dialog_padding_top_material"
+                android:paddingBottom="@dimen/abc_dialog_padding_top_material"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:id="@+id/alertTitle"
+                    style="?android:windowTitleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:singleLine="false"
+                    android:textSize="18sp"
+                    tools:text="这是标题" />
+
+            </FrameLayout>
+            <!-- If the client uses a customTitle, it will be added here. -->
+        </LinearLayout>
+
+        <!-- content -->
+        <FrameLayout
+            android:id="@+id/contentPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:minHeight="48dp">
+
+            <View
+                android:id="@+id/scrollIndicatorUp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="top"
+                android:background="?attr/colorControlHighlight"
+                android:visibility="gone" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.widget.Space
+                        android:id="@+id/textSpacerNoTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/abc_dialog_padding_top_material"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@android:id/message"
+                        style="@style/TextAppearance.AppCompat.Subhead"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="?attr/dialogPreferredPadding"
+                        android:paddingBottom="@dimen/abc_dialog_padding_top_material"
+                        android:textColor="?android:textColorSecondary"
+                        tools:text="这是内容" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <View
+                android:id="@+id/scrollIndicatorDown"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="?attr/colorControlHighlight"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- custom -->
+        <FrameLayout
+            android:id="@+id/customPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="48dp">
+
+            <FrameLayout
+                android:id="@+id/custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <!-- button bar -->
+        <LinearLayout
+            android:id="@+id/buttonPanel"
+            style="?attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layoutDirection="locale"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@android:id/button2"
+                style="?attr/buttonBarNegativeButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@android:id/button3"
+                style="?attr/buttonBarNeutralButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@android:id/button1"
+                style="?attr/buttonBarPositiveButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

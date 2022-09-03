@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ================================================================================ -->
+    <!--  TooSimple.ActionSheet  -->
+    <style name="TooSimple.ActionSheet" parent="CustomDialog.Dialog">
+        <item name="android:listViewStyle">@style/ActionSheet.ListViewStyle</item>
+        <item name="android:buttonStyle">@style/ActionSheet.ButtonStyle</item>
+        <item name="android:divider">@drawable/toosimple_actionsheet_divider</item>
+        <item name="dialogPreferredPadding">0dp</item>
+    </style>
+
+    <style name="ActionSheet.ListViewStyle" parent="Widget.AppCompat.ListView">
+        <item name="android:background">@drawable/toosimple_actionsheet_background_bottom</item>
+        <item name="android:divider">@drawable/toosimple_actionsheet_list_divider</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+    <style name="ActionSheet.ButtonStyle" parent="">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">?android:colorAccent</item>
+    </style>
+
+    <!-- ================================================================================ -->
+    <!--  TooSimple.ActionSheetIos  -->
+    <style name="TooSimple.ActionSheetIos" parent="CustomDialog.Dialog">
+        <item name="android:listViewStyle">@style/ActionSheetIos.ListViewStyle</item>
+        <item name="android:buttonStyle">@style/ActionSheetIos.ButtonStyle</item>
+        <item name="android:divider">@null</item>
+        <item name="dialogPreferredPadding">20dp</item>
+        <item name="dialogCornerRadius">8dp</item>
+    </style>
+
+    <style name="ActionSheetIos.ListViewStyle" parent="Widget.AppCompat.ListView">
+        <item name="android:background">@drawable/toosimple_actionsheet_background</item>
+        <item name="android:divider">@drawable/toosimple_actionsheet_list_divider</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+    <style name="ActionSheetIos.ButtonStyle" parent="">
+        <item name="android:background">@drawable/toosimple_actionsheet_background</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:textColor">?android:colorAccent</item>
+    </style>
+
+</resources>

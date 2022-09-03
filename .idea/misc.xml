@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../ezy/.gradle/caches/transforms-3/0fea1bf9ec606d269a5be74351665e00/transformed/appcompat-1.4.2/res/layout/select_dialog_item_material.xml" value="0.3880208333333333" />
+        <entry key="alert/src/main/res/drawable/naive_background.xml" value="0.219" />
+        <entry key="alert/src/main/res/drawable/naive_background_alert_icon.xml" value="0.219" />
+        <entry key="alert/src/main/res/drawable/naive_divider_h.xml" value="0.219" />
+        <entry key="alert/src/main/res/drawable/toosimple_background.xml" value="0.219" />
+        <entry key="alert/src/main/res/drawable/toosimple_background_icon.xml" value="0.219" />
+        <entry key="alert/src/main/res/drawable/toosimple_border_top.xml" value="0.219" />
+        <entry key="alert/src/main/res/drawable/toosimple_divider_h.xml" value="0.219" />
+        <entry key="alert/src/main/res/drawable/toosimple_divider_v.xml" value="0.219" />
+        <entry key="alert/src/main/res/layout/naive_dialog_alert.xml" value="0.1" />
+        <entry key="alert/src/main/res/layout/naive_dialog_alert_list.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/activity_dialog.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/layout_list.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/layout_share.xml" value="0.303125" />
+        <entry key="app/src/main/res/layout/layout_side.xml" value="0.24947916666666667" />
+        <entry key="dialog-alert/src/main/res/drawable/toosimple_alert_background.xml" value="0.1715" />
+        <entry key="dialog-alert/src/main/res/drawable/toosimple_alert_background_icon.xml" value="0.1945" />
+        <entry key="dialog-alert/src/main/res/layout/toosimple_alert.xml" value="0.1" />
+        <entry key="dialog-alert/src/main/res/layout/toosimple_dialog_alert.xml" value="0.21927083333333333" />
+        <entry key="dialog-alert/src/main/res/layout/toosimple_dialog_alert_list.xml" value="0.1625" />
+        <entry key="dialog-custom/src/main/res/drawable/naive_background_bottom.xml" value="0.1945" />
+        <entry key="dialog-custom/src/main/res/drawable/naive_background_loading.xml" value="0.1945" />
+        <entry key="dialog-custom/src/main/res/drawable/toosimple_actionsheet_background.xml" value="0.1175" />
+        <entry key="dialog-custom/src/main/res/drawable/toosimple_actionsheet_list_divider.xml" value="0.1" />
+        <entry key="dialog-custom/src/main/res/drawable/toosimple_background.xml" value="0.1945" />
+        <entry key="dialog-custom/src/main/res/drawable/toosimple_background_bottom.xml" value="0.106" />
+        <entry key="dialog-custom/src/main/res/drawable/toosimple_divider_acttionsheet.xml" value="0.1945" />
+        <entry key="dialog-custom/src/main/res/drawable/toosimple_divider_v.xml" value="0.1945" />
+        <entry key="dialog-custom/src/main/res/layout/naive_dialog_actionsheet_item.xml" value="0.37395833333333334" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_actionsheet.xml" value="0.10625" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_dialog_actionsheet.xml" value="0.37395833333333334" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_dialog_actionsheet_item.xml" value="0.37395833333333334" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_dialog_loading.xml" value="0.37395833333333334" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_image.xml" value="0.1" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_input.xml" value="0.32395833333333335" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_loading.xml" value="0.1" />
+        <entry key="dialog-custom/src/main/res/layout/toosimple_picker.xml" value="0.1" />
+        <entry key="dialog-simple/src/main/res/layout/toosimple_input.xml" value="0.14739583333333334" />
+        <entry key="update/src/main/res/layout/update_prompt_view.xml" value="0.2078125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
