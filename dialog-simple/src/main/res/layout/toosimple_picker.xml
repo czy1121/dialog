@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:background="@android:color/white"
+    tools:background="?android:attr/colorBackgroundCacheHint"
     android:orientation="vertical">
 
     <FrameLayout
@@ -40,6 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="15dp"
-        android:theme="@style/TooSimple.Picker" />
+        android:theme="@style/TooSimple.ViewTheme.Picker" />
 
 </LinearLayout>

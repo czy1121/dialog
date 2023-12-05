@@ -8,4 +8,10 @@
     <string name="toosimple_picker_confirm">确定</string>
 
     <string name="toosimple_input_confirm">确定</string>
+
+
+    <string name="toosimple_simple_tips">提示</string>
+    <string name="toosimple_simple_known">我知道了</string>
+    <string name="toosimple_simple_cancel">确定</string>
+    <string name="toosimple_simple_confirm">确定</string>
 </resources>

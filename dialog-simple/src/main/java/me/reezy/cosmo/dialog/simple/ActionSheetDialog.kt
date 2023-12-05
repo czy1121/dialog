@@ -12,7 +12,7 @@ import me.reezy.cosmo.dialog.BottomDialog
 class ActionSheetDialog(
     context: Context,
     items: Array<String>,
-    themeId: Int = R.style.TooSimple_ActionSheet,
+    themeId: Int = R.style.Theme_TooSimple_ActionSheet,
     cancelText: String = context.getString(R.string.toosimple_actionsheet_cancel),
     action: (which: Int) -> Unit = {}
 ) : BottomDialog(context, themeId) {

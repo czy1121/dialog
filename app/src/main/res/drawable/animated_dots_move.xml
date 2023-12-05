@@ -1,0 +1,107 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+
+            <group
+                android:name="c0"
+                android:pivotX="4"
+                android:pivotY="12">
+                <path
+                    android:fillColor="#000000"
+                    android:pathData="M1 12A3 3 0 0 0 7 12A3 3 0 0 0 1 12Z" />
+            </group>
+
+            <group
+                android:name="c1"
+                android:pivotX="4"
+                android:pivotY="12">
+                <path
+                    android:fillColor="#000000"
+                    android:pathData="M1 12A3 3 0 0 0 7 12A3 3 0 0 0 1 12Z" />
+            </group>
+
+            <group
+                android:name="c2"
+                android:pivotX="12"
+                android:pivotY="12">
+                <path
+                    android:fillColor="#000000"
+                    android:pathData="M9 12A3 3 0 0 0 15 12A3 3 0 0 0 9 12" />
+            </group>
+
+
+            <group
+                android:name="c3"
+                android:pivotX="20"
+                android:pivotY="12">
+                <path
+                    android:fillColor="#000000"
+                    android:pathData="M17 12A3 3 0 0 0 23 12A3 3 0 0 0 17 12" />
+            </group>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="c0">
+        <aapt:attr name="android:animation">
+            <objectAnimator android:duration="500" android:repeatCount="infinite" android:interpolator="@android:anim/linear_interpolator">
+                <propertyValuesHolder android:propertyName="scaleX">
+                    <keyframe android:fraction="0.0" android:value="0" />
+                    <keyframe android:fraction="0.5" android:value="1" />
+                    <keyframe android:fraction="1" android:value="1" />
+                </propertyValuesHolder>
+                <propertyValuesHolder android:propertyName="scaleY">
+                    <keyframe android:fraction="0.0" android:value="0" />
+                    <keyframe android:fraction="0.5" android:value="1" />
+                    <keyframe android:fraction="1" android:value="1" />
+                </propertyValuesHolder>
+            </objectAnimator>
+        </aapt:attr>
+    </target>
+
+    <target android:name="c1">
+        <aapt:attr name="android:animation">
+            <objectAnimator android:duration="500" android:repeatCount="infinite" android:interpolator="@android:anim/linear_interpolator">
+                <propertyValuesHolder android:propertyName="translateX">
+                    <keyframe android:fraction="0.0" android:value="0" />
+                    <keyframe android:fraction="0.5" android:value="8" />
+                    <keyframe android:fraction="1" android:value="8" />
+                </propertyValuesHolder>
+            </objectAnimator>
+        </aapt:attr>
+    </target>
+
+
+    <target android:name="c2">
+        <aapt:attr name="android:animation">
+            <objectAnimator android:duration="500" android:repeatCount="infinite" android:interpolator="@android:anim/linear_interpolator">
+                <propertyValuesHolder android:propertyName="translateX">
+                    <keyframe android:fraction="0.0" android:value="0" />
+                    <keyframe android:fraction="0.5" android:value="8" />
+                    <keyframe android:fraction="1" android:value="8" />
+                </propertyValuesHolder>
+            </objectAnimator>
+        </aapt:attr>
+    </target>
+
+    <target android:name="c3">
+        <aapt:attr name="android:animation">
+            <objectAnimator android:duration="500" android:repeatCount="infinite" android:interpolator="@android:anim/linear_interpolator">
+                <propertyValuesHolder android:propertyName="scaleX">
+                    <keyframe android:fraction="0.0" android:value="1" />
+                    <keyframe android:fraction="0.5" android:value="0" />
+                    <keyframe android:fraction="1" android:value="0" />
+                </propertyValuesHolder>
+                <propertyValuesHolder android:propertyName="scaleY">
+                    <keyframe android:fraction="0.0" android:value="1" />
+                    <keyframe android:fraction="0.5" android:value="0" />
+                    <keyframe android:fraction="1" android:value="0" />
+                </propertyValuesHolder>
+            </objectAnimator>
+        </aapt:attr>
+    </target>
+</animated-vector>

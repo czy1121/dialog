@@ -42,13 +42,13 @@ repositories {
 }
 dependencies {
     // AlertDialog扩展(tip/alert/confirm/choose)
-    implementation "me.reezy.cosmo:dialog-alert:0.7.0"
+    implementation "me.reezy.cosmo:dialog-alert:0.8.0"
 
     // 自定义对话框(CustomDialog/BottomDialog/DropdownDialog/SideDialog)
-    implementation "me.reezy.cosmo:dialog-custom:0.7.0"
+    implementation "me.reezy.cosmo:dialog-custom:0.8.0"
 
     // 一些简单的对话框(LoadingDialog/InputDialog/ActionSheetDialog/PickerDialog)
-    implementation "me.reezy.cosmo:dialog-simple:0.7.0"
+    implementation "me.reezy.cosmo:dialog-simple:0.8.0"
 }
 ```
 

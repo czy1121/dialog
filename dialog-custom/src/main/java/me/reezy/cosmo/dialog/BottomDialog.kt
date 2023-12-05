@@ -2,8 +2,6 @@ package me.reezy.cosmo.dialog
 
 import android.content.Context
 import android.view.Gravity
-import android.view.ViewGroup
-import android.view.WindowManager
 
 
 open class BottomDialog(context: Context, themeId: Int = 0) : CustomDialog(context, themeId) {

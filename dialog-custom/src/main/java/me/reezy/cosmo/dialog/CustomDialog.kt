@@ -32,7 +32,7 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
             if (outValue.resourceId > 0) {
                 return outValue.resourceId
             }
-            return R.style.CustomDialog_Dialog
+            return R.style.Theme_TooSimple_CustomDialog
         }
 
         fun translateY(from: Float, to: Float): Animation {
@@ -62,7 +62,8 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
 
     private val registry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
 
-    override fun getLifecycle(): Lifecycle = registry
+    override val lifecycle: Lifecycle
+        get() = registry
 
     init {
         requestWindowFeature(Window.FEATURE_NO_TITLE)

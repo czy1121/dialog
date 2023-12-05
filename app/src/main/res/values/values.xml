@@ -15,6 +15,9 @@
         <item>TooSimple</item>
         <item>Default</item>
         <item>Material</item>
+        <item>Material.Light</item>
+        <item>Compat</item>
+        <item>Compat.Light</item>
     </string-array>
 
     <string-array name="titles">

@@ -46,6 +46,7 @@ inline fun AlertDialog.Builder.choose(items: Array<CharSequence>, checkedItems: 
     return setMultiChoiceItems(items, checkedItems) { dialog, which, isChecked -> onClick(dialog, which, isChecked) }
 }
 
+
 inline fun AlertDialog.Builder.ok(text: CharSequence = context.getString(R.string.toosimple_alert_ok), crossinline onClick: () -> Unit = {}): AlertDialog.Builder {
     return setPositiveButton(text) { _, _ -> onClick() }
 }

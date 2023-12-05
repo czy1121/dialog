@@ -14,7 +14,7 @@
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="-18dp"
-        android:background="@drawable/toosimple_alert_icon_background"
+        android:background="@drawable/toosimple_alert_bg_icon"
         android:scaleType="center"
         tools:background="#FF0000"
         tools:layout_height="80dp"
@@ -24,8 +24,10 @@
         android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/toosimple_alert_background"
+        android:background="@drawable/toosimple_alert_bg"
         android:elevation="-1px"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="vertical">
 
         <!-- top -->
@@ -42,8 +44,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
                 android:paddingHorizontal="?attr/dialogPreferredPadding"
-                android:paddingTop="@dimen/abc_dialog_padding_top_material"
-                android:paddingBottom="@dimen/abc_dialog_padding_top_material"
+                android:paddingVertical="?attr/dialogPreferredPadding"
                 tools:ignore="UselessParent">
 
                 <TextView
@@ -53,7 +54,6 @@
                     android:layout_height="wrap_content"
                     android:maxLines="2"
                     android:singleLine="false"
-                    android:textSize="18sp"
                     tools:text="这是标题" />
 
             </FrameLayout>
@@ -66,17 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:minHeight="48dp">
+            android:layout_weight="1">
 
-            <View
-                android:id="@+id/scrollIndicatorUp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_gravity="top"
-                android:background="?attr/colorControlHighlight"
-                android:visibility="gone" />
-
+            <!-- message -->
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
@@ -91,29 +83,22 @@
                     <android.widget.Space
                         android:id="@+id/textSpacerNoTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/abc_dialog_padding_top_material"
+                        android:layout_height="?attr/dialogPreferredPadding"
                         android:visibility="gone" />
 
                     <TextView
                         android:id="@android:id/message"
-                        style="@style/TextAppearance.AppCompat.Subhead"
+                        style="?android:textViewStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingHorizontal="?attr/dialogPreferredPadding"
-                        android:paddingBottom="@dimen/abc_dialog_padding_top_material"
-                        android:textColor="?android:textColorSecondary"
+                        android:paddingBottom="?attr/dialogPreferredPadding"
                         tools:text="这是内容" />
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
 
-            <View
-                android:id="@+id/scrollIndicatorDown"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_gravity="bottom"
-                android:background="?attr/colorControlHighlight"
-                android:visibility="gone" />
+            <!-- list -->
         </FrameLayout>
 
         <!-- custom -->
@@ -127,7 +112,7 @@
             <FrameLayout
                 android:id="@+id/custom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
         </FrameLayout>
 
         <!-- button bar -->

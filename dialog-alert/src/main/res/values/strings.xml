@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="toosimple_alert_ok">确定</string>
     <string name="toosimple_alert_cancel">取消</string>
     <string name="toosimple_alert_skip">跳过</string>

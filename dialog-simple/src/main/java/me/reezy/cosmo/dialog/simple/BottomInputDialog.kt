@@ -11,10 +11,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import me.reezy.cosmo.dialog.simple.R
 import me.reezy.cosmo.dialog.BottomDialog
 
-class InputDialog(
+class BottomInputDialog(
     context: Context,
     title: String = "",
     hint: String = "",
@@ -84,12 +83,12 @@ class InputDialog(
 
     }
 
-    fun setHint(value: String): InputDialog {
+    fun setHint(value: String): BottomInputDialog {
         vEdit.hint = value
         return this
     }
 
-    fun setText(value: CharSequence): InputDialog {
+    fun setText(value: CharSequence): BottomInputDialog {
         vEdit.text.clear()
         vEdit.text.append(value)
         return this
