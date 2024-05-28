@@ -1,11 +1,13 @@
 package me.reezy.cosmo.dialog.simple
 
 import android.content.Context
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.TextView
 import me.reezy.cosmo.dialog.CustomDialog
 
-class MessageDialog(context: Context, message: String? = null, title: String? = null, closeButton: Boolean = false, layoutResId: Int = R.layout.toosimple_message) : CustomDialog(context) {
+class MessageDialog(context: Context, message: CharSequence? = null, title: String? = null, closeButton: Boolean = false, layoutResId: Int = R.layout.toosimple_message) : CustomDialog(context) {
 
     init {
         setDimAmount(0.6f)
@@ -19,7 +21,12 @@ class MessageDialog(context: Context, message: String? = null, title: String? = 
         if (message.isNullOrEmpty()) {
             findViewById<TextView>(android.R.id.message)?.visibility = View.GONE
         } else {
-            findViewById<TextView>(android.R.id.message)?.text = message
+            findViewById<TextView>(android.R.id.message)?.let {
+                if (message is Spanned) {
+                    it.movementMethod = LinkMovementMethod.getInstance()
+                }
+                it.text = message
+            }
         }
         if (closeButton) {
             findViewById<View>(android.R.id.closeButton)?.apply {

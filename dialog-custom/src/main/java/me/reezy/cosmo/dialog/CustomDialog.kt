@@ -5,12 +5,17 @@ import android.content.Context
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.TypedValue
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
+import android.widget.FrameLayout
 import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
-import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
@@ -51,9 +56,8 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
     }
 
 
-    private val root: ViewGroup = LinearLayoutCompat(getContext()).apply {
-        orientation = LinearLayoutCompat.VERTICAL
-    }
+    private val root: ViewGroup = FrameLayout(getContext())
+
     private var contentView: View? = null
 
     private var mAnimationEnter: Animation? = null
@@ -84,14 +88,18 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
     }
 
     fun setLayout(width: Int, height: Int): CustomDialog {
-        window?.decorView?.layoutParams = WindowManager.LayoutParams(width, height)
-        window?.setLayout(width, height)
 
-        val lp = root.layoutParams?.also {
+        window?.decorView?.layoutParams = window?.decorView?.layoutParams?.also {
             it.width = width
             it.height = height
         } ?: ViewGroup.LayoutParams(width, height)
-        root.layoutParams = lp
+
+        window?.setLayout(width, height)
+
+        root.layoutParams = root.layoutParams?.also {
+            it.width = width
+            it.height = height
+        } ?: ViewGroup.LayoutParams(width, height)
         return this
     }
 
