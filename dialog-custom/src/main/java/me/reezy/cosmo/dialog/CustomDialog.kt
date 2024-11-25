@@ -65,7 +65,7 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
 
     private val registry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
 
-    private var dismissCallback: Runnable? = null
+    private var dismissAction: Runnable? = null
     override val lifecycle: Lifecycle
         get() = registry
 
@@ -132,15 +132,15 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
         return this;
     }
 
-    fun setDismissCallback(callback: Runnable) : CustomDialog {
-        dismissCallback = callback
+    fun setDismissAction(callback: Runnable) : CustomDialog {
+        dismissAction = callback
         return this
     }
 
     fun requireView(): View = contentView!!
 
     fun dismissImmediately() {
-        dismissCallback?.run()
+        dismissAction?.run()
         super.dismiss()
     }
 
