@@ -8,10 +8,11 @@ import android.view.animation.Interpolator
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import me.reezy.cosmo.dialog.CustomDialog
 
 
-class LoadingDialog(context: Context, compact: Boolean = false, iconResId: Int = 0, text: String = context.getString(R.string.toosimple_loading_text)) : CustomDialog(context) {
+class LoadingDialog(context: Context, compact: Boolean = false, iconResId: Int = 0, text: String? = null) : CustomDialog(context) {
 
     init {
         setView(R.layout.toosimple_loading)
@@ -21,7 +22,9 @@ class LoadingDialog(context: Context, compact: Boolean = false, iconResId: Int =
             require<View>(android.R.id.widget_frame).setPadding(0, 0, 0, 0)
             require<TextView>(android.R.id.text1).visibility = View.GONE
         } else{
-            require<TextView>(android.R.id.text1).text = text
+            val text1 = text ?: context.getString(R.string.toosimple_loading_text)
+            require<TextView>(android.R.id.text1).isVisible = text1.isNotEmpty()
+            require<TextView>(android.R.id.text1).text = text1
         }
 
         require<ImageView>(android.R.id.icon).apply {

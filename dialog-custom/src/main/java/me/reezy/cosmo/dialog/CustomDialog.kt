@@ -13,9 +13,9 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
-import android.widget.FrameLayout
 import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
@@ -49,14 +49,13 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
 
         fun translateX(from: Float, to: Float): Animation {
             val type = Animation.RELATIVE_TO_SELF
-            val animation = TranslateAnimation(type, from, type, to, 0, 0f, 0, 0f, )
+            val animation = TranslateAnimation(type, from, type, to, 0, 0f, 0, 0f)
             animation.duration = 250
             return animation
         }
     }
 
 
-    private val root: ViewGroup = FrameLayout(getContext())
 
     private var contentView: View? = null
 
@@ -66,12 +65,21 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
 
     private val registry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
 
+    private var dismissCallback: Runnable? = null
     override val lifecycle: Lifecycle
         get() = registry
+
+    val root: ViewGroup by lazy { createRootView(getContext()) }
 
     init {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window?.setWindowAnimations(0)
+    }
+
+ 
+
+    protected open fun createRootView(context: Context): ViewGroup = LinearLayoutCompat(getContext()).apply {
+        orientation = LinearLayoutCompat.VERTICAL
     }
 
     open fun setDimAmount(amount: Float): CustomDialog {
@@ -124,9 +132,15 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
         return this;
     }
 
+    fun setDismissCallback(callback: Runnable) : CustomDialog {
+        dismissCallback = callback
+        return this
+    }
+
     fun requireView(): View = contentView!!
 
     fun dismissImmediately() {
+        dismissCallback?.run()
         super.dismiss()
     }
 
@@ -144,12 +158,10 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
     override fun onStart() {
         super.onStart()
         // on show
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_START)
+        registry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
     }
 
     override fun onStop() {
-        // on hide
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_STOP)
         // on destroy
         registry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         super.onStop()

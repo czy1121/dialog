@@ -21,8 +21,10 @@ AlertDialog扩展
   - dismiss 重载使离场时默认播放离场动画
   - dismissImmediately 为不播放动画立即关闭对话框
   - 实现 LifecycleOwner 支持生命周期
-- BottomDialog - 在屏幕底部弹出的对话框
+- FullscreenDialog - 全屏对话框
 - DropdownDialog - 在指定View的下面弹出对话框
+- TopDialog - 在屏幕顶部弹出的对话框
+- BottomDialog - 在屏幕底部弹出的对话框
 - SideDialog - 在屏幕左边或右边弹出的对话框
 
 一些简单的对话框
@@ -42,13 +44,13 @@ repositories {
 }
 dependencies {
     // AlertDialog扩展(tip/alert/confirm/choose)
-    implementation "me.reezy.cosmo:dialog-alert:0.8.0"
+    implementation "me.reezy.cosmo:dialog-alert:0.10.0"
 
     // 自定义对话框(CustomDialog/BottomDialog/DropdownDialog/SideDialog)
-    implementation "me.reezy.cosmo:dialog-custom:0.8.0"
+    implementation "me.reezy.cosmo:dialog-custom:0.10.0"
 
     // 一些简单的对话框(LoadingDialog/InputDialog/ActionSheetDialog/PickerDialog)
-    implementation "me.reezy.cosmo:dialog-simple:0.8.0"
+    implementation "me.reezy.cosmo:dialog-simple:0.10.0"
 }
 ```
 
