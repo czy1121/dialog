@@ -47,7 +47,7 @@ dependencies {
     implementation "me.reezy.cosmo:dialog-alert:0.10.0"
 
     // 自定义对话框(CustomDialog/BottomDialog/DropdownDialog/SideDialog)
-    implementation "me.reezy.cosmo:dialog-custom:0.10.0"
+    implementation "me.reezy.cosmo:dialog-custom:0.10.1"
 
     // 一些简单的对话框(LoadingDialog/InputDialog/ActionSheetDialog/PickerDialog)
     implementation "me.reezy.cosmo:dialog-simple:0.10.0"

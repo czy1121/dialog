@@ -2,6 +2,7 @@ package com.demo.dialog
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import me.reezy.cosmo.dialog.BottomDialog
 import me.reezy.cosmo.dialog.DropdownDialog
 import me.reezy.cosmo.dialog.SideDialog
 import me.reezy.cosmo.dialog.TopDialog
+import me.reezy.cosmo.dialog.showInQueue
 import me.reezy.cosmo.dialog.simple.*
 
 
@@ -108,6 +110,13 @@ class CustomDialogFragment : Fragment(R.layout.fragment_custom_dialog) {
             }.show()
         }
     }
+
+//    private var tick = 1
+//    override fun onResume() {
+//        super.onResume()
+//        Log.e("OoO", "tick = $tick")
+//        MessageDialog(requireContext(), title = "该吃药了 ${tick++}").ack().showInQueue()
+//    }
 
     fun createGridView(): View {
         val inflater = LayoutInflater.from(requireContext())
