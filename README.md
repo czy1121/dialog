@@ -12,6 +12,7 @@ AlertDialog扩展
 自定义对话框
 
 - CustomDialog - 自定义对话框基类，封装了众多实用功能
+  - 继承自 ComponentDialog，支持生命周期 LifecycleOwner
   - setLayout 简化设置 Window 的宽高
   - setDimAmount 简化设置背景的不透明遮罩
   - setButton 简化按钮事件设置
@@ -20,7 +21,7 @@ AlertDialog扩展
   - setAnimation 支持通过代码设置 进场/离场 动画
   - dismiss 重载使离场时默认播放离场动画
   - dismissImmediately 为不播放动画立即关闭对话框
-  - 实现 LifecycleOwner 支持生命周期
+  - showInQueue 支持在队列中依次显现弹窗
 - FullscreenDialog - 全屏对话框
 - DropdownDialog - 在指定View的下面弹出对话框
 - TopDialog - 在屏幕顶部弹出的对话框
@@ -30,7 +31,7 @@ AlertDialog扩展
 一些简单的对话框
 
 - LoadingDialog - 在屏幕中央显示一个加载动画
-- InputDialog - 在弹框中输入一个文本并返回
+- BottomInputDialog - 在弹框中输入一个文本并返回
 - ActionSheetDialog
 - PickerDialog
 
@@ -44,13 +45,13 @@ repositories {
 }
 dependencies {
     // AlertDialog扩展(tip/alert/confirm/choose)
-    implementation "me.reezy.cosmo:dialog-alert:0.10.0"
+    implementation "me.reezy.cosmo:dialog-alert:0.10.2"
 
     // 自定义对话框(CustomDialog/BottomDialog/DropdownDialog/SideDialog)
-    implementation "me.reezy.cosmo:dialog-custom:0.10.1"
+    implementation "me.reezy.cosmo:dialog-custom:0.10.2"
 
     // 一些简单的对话框(LoadingDialog/InputDialog/ActionSheetDialog/PickerDialog)
-    implementation "me.reezy.cosmo:dialog-simple:0.10.0"
+    implementation "me.reezy.cosmo:dialog-simple:0.10.2"
 }
 ```
 
