@@ -12,8 +12,8 @@ open class DropdownDialog(context: Context, anchor: View) : CustomDialog(context
     init {
         setAnimation(translateY(-1f, 0f), translateY(0f, -1f))
         setLayout(MATCH_PARENT, WRAP_CONTENT)
-        setDimAmount(0.5f)
         setCanceledOnTouchOutside(true)
+        setBackgroundDimAmount(0.5f)
 
 
         val location = IntArray(2)
@@ -32,13 +32,9 @@ open class DropdownDialog(context: Context, anchor: View) : CustomDialog(context
         }
     }
 
-    final override fun setDimAmount(amount: Float): CustomDialog {
-        window?.apply {
-            val color = (amount * 255).toInt() shl 24
-            setDimAmount(0f)
-            setBackgroundDrawable(ColorDrawable(color))
-            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-        }
+    fun setBackgroundDimAmount(amount: Float): CustomDialog {
+        setDimAmount(0f)
+        window?.setBackgroundDrawable(ColorDrawable((amount * 255).toInt() shl 24))
         return this
     }
 }

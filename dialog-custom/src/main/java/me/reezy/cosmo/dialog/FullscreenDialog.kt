@@ -2,9 +2,7 @@ package me.reezy.cosmo.dialog
 
 import android.content.Context
 import android.os.Build
-import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.FrameLayout
 
 open class FullscreenDialog(context: Context, themeId: Int = 0) : CustomDialog(context, themeId) {
 
@@ -26,9 +24,5 @@ open class FullscreenDialog(context: Context, themeId: Int = 0) : CustomDialog(c
         setCanceledOnTouchOutside(false)
     }
 
-
-    final override fun createRootView(context: Context): ViewGroup {
-        return FrameLayout(context)
-    }
 
 }

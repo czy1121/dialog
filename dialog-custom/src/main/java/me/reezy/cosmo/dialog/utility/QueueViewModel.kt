@@ -1,44 +1,16 @@
-package me.reezy.cosmo.dialog
+package me.reezy.cosmo.dialog.utility
 
-import android.content.Context
-import android.content.ContextWrapper
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.withResumed
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import me.reezy.cosmo.dialog.CustomDialog
 import java.lang.ref.SoftReference
 import java.lang.ref.WeakReference
 import java.util.concurrent.ConcurrentLinkedQueue
-
-
-fun CustomDialog.showInQueue() {
-    if (isShowing) {
-        return
-    }
-    val activity = context.resolveComponentActivity()
-    if (activity == null) {
-        show()
-        return
-    }
-
-    val queueViewModel by ViewModelLazy(QueueViewModel::class,
-        { activity.viewModelStore },
-        { activity.defaultViewModelProviderFactory },
-        { activity.defaultViewModelCreationExtras }
-    )
-    queueViewModel.enqueue(activity, this)
-}
-
-private fun Context.resolveComponentActivity(): ComponentActivity? = when (this) {
-    is ComponentActivity -> this
-    is ContextWrapper -> baseContext.resolveComponentActivity()
-    else -> null
-}
-
 
 class QueueViewModel : ViewModel() {
 

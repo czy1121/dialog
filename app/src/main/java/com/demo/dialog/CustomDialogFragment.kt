@@ -2,7 +2,6 @@ package com.demo.dialog
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -14,11 +13,13 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.demo.dialog.databinding.FragmentCustomDialogBinding
+import com.demo.dialog.dialog.Bottom1Dialog
+import com.demo.dialog.dialog.Fullscreen1Dialog
+import com.demo.dialog.dialog.Fullscreen2Dialog
 import me.reezy.cosmo.dialog.BottomDialog
 import me.reezy.cosmo.dialog.DropdownDialog
 import me.reezy.cosmo.dialog.SideDialog
 import me.reezy.cosmo.dialog.TopDialog
-import me.reezy.cosmo.dialog.showInQueue
 import me.reezy.cosmo.dialog.simple.*
 
 
@@ -108,6 +109,13 @@ class CustomDialogFragment : Fragment(R.layout.fragment_custom_dialog) {
             MessageDialog(it.context, "确定要退出登录吗？").confirm {
                 toast("退出登录成功")
             }.show()
+        }
+
+        binding.btnFullscreen1.setOnClickListener {
+            Fullscreen1Dialog(it.context).show()
+        }
+        binding.btnFullscreen2.setOnClickListener {
+            Fullscreen2Dialog(it.context).show()
         }
     }
 

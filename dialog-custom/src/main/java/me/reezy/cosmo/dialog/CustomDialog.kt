@@ -1,6 +1,5 @@
 package me.reezy.cosmo.dialog
 
-import android.app.Dialog
 import android.content.Context
 import android.graphics.Rect
 import android.os.Bundle
@@ -13,16 +12,14 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
+import android.widget.FrameLayout
+import androidx.activity.ComponentDialog
 import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
-import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LifecycleRegistry
 import me.reezy.cosmo.R
 
 
-open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, context.resolveDialogTheme(themeId)), LifecycleOwner {
+open class CustomDialog(context: Context, themeId: Int = 0) : ComponentDialog(context, context.resolveDialogTheme(themeId)) {
 
     companion object {
         const val MATCH_PARENT = ViewGroup.LayoutParams.MATCH_PARENT
@@ -56,33 +53,22 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
     }
 
 
-
+    private val root: ViewGroup = FrameLayout(context)
     private var contentView: View? = null
 
     private var mAnimationEnter: Animation? = null
     private var mAnimationExit: Animation? = null
     private var mIsCanceledOnTouchOutside = false
 
-    private val registry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
-
     private var dismissAction: Runnable? = null
-    override val lifecycle: Lifecycle
-        get() = registry
 
-    val root: ViewGroup by lazy { createRootView(getContext()) }
 
     init {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window?.setWindowAnimations(0)
     }
 
- 
-
-    protected open fun createRootView(context: Context): ViewGroup = LinearLayoutCompat(getContext()).apply {
-        orientation = LinearLayoutCompat.VERTICAL
-    }
-
-    open fun setDimAmount(amount: Float): CustomDialog {
+    fun setDimAmount(amount: Float): CustomDialog {
         window?.apply {
             if (amount > 0) {
                 addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
@@ -96,7 +82,6 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
     }
 
     fun setLayout(width: Int, height: Int): CustomDialog {
-
         window?.decorView?.layoutParams = window?.decorView?.layoutParams?.also {
             it.width = width
             it.height = height
@@ -132,7 +117,7 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
         return this;
     }
 
-    fun setDismissAction(callback: Runnable) : CustomDialog {
+    fun setDismissAction(callback: Runnable): CustomDialog {
         dismissAction = callback
         return this
     }
@@ -152,19 +137,6 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         super.setContentView(root, root.layoutParams ?: ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        // on show
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    }
-
-    override fun onStop() {
-        // on destroy
-        registry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-        super.onStop()
     }
 
 
@@ -179,17 +151,20 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
 
 
     override fun setContentView(view: View) {
-        contentView = view
-        root.addView(view)
-    }
-
-    override fun setContentView(view: View, params: ViewGroup.LayoutParams?) {
-        contentView = view
-        root.addView(view, params)
+        setContentView(view, null)
     }
 
     override fun setContentView(layoutResID: Int) {
         setContentView(LayoutInflater.from(context).inflate(layoutResID, root, false))
+    }
+
+    override fun setContentView(view: View, params: ViewGroup.LayoutParams?) {
+        contentView = view
+        if (params != null) {
+            root.addView(view, params)
+        } else {
+            root.addView(view)
+        }
     }
 
     override fun onAttachedToWindow() {
@@ -230,10 +205,11 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
         if (isAnimating(mAnimationEnter) || isAnimating(mAnimationExit)) {
             return true
         }
-        if (ev.action == MotionEvent.ACTION_DOWN) {
-            if (mIsCanceledOnTouchOutside) {
+        if (ev.action == MotionEvent.ACTION_DOWN && mIsCanceledOnTouchOutside) {
+            val view = contentView
+            if (view != null) {
                 val rect = Rect()
-                root.getHitRect(rect)
+                view.getHitRect(rect)
                 if (!rect.contains(ev.x.toInt(), ev.y.toInt())) {
                     dismiss()
                     return true
@@ -242,7 +218,6 @@ open class CustomDialog(context: Context, themeId: Int = 0) : Dialog(context, co
         }
         return super.dispatchTouchEvent(ev)
     }
-
 
     override fun onBackPressed() {
         if (isAnimating(mAnimationEnter) || isAnimating(mAnimationExit)) {
